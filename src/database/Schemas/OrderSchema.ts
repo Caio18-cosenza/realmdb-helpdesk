@@ -1,13 +1,12 @@
 export const OrderSchema = {
-  name: "Order",
+  name: 'Order',
   properties: {
-    _id: "string",
-    patrimony: "string",
-    equipment: "string",
-    description: "string",
-    status: "string",
-    created_at: "date",
+    _id: 'string',
+    patrimony: 'string',
+    equipament: 'string',
+    description: 'string',
+    status: 'string',
+    created_at: 'date',
   },
-
-  primaryKey: "_id",
+  primaryKey: '_id',
 };

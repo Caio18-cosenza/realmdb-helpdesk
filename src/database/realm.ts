@@ -1,8 +1,8 @@
-import Realm from "realm";
-import { OrderSchema } from './Schemas/OrderSchema';
+import Realm from 'realm';
+import { OrderSchema } from './schemas/orderSchema';
 
-export const getRealm = async () => await Realm.open({
-  path: "decode-app",
-  schema: [OrderSchema],
-  schemaVersion: 3
-});
+export const getRealm = async () =>
+  await Realm.open({
+    path: 'helpDesk',
+    schema: [OrderSchema],
+  });

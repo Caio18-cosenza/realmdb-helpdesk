@@ -13,17 +13,16 @@ import {
   Label,
   Info,
   Footer,
-  OrderStyleProps
+  OrderStyleProps,
 } from './styles';
-
 
 export type OrderProps = OrderStyleProps & {
   _id: string;
   patrimony: string;
-  equipment: string;
+  equipament: string;
   description: string;
   created_at: Date;
-}
+};
 
 type Props = PressableProps & {
   data: OrderProps;
@@ -32,36 +31,41 @@ type Props = PressableProps & {
 export function Order({ data, ...rest }: Props) {
   const theme = useTheme();
 
-
   return (
     <Container {...rest}>
       <Status status={data.status} />
 
       <Content>
         <Header>
-          <Title>{data.equipment}</Title>
+          <Title>{data.equipament}</Title>
           <MaterialIcons
-            name={data.status === "open" ? "hourglass-empty" : "check-circle"}
+            name={data.status === 'open' ? 'hourglass-empty' : 'check-circle'}
             size={24}
-            color={data.status === "open" ? theme.COLORS.SECONDARY : theme.COLORS.PRIMARY}
+            color={
+              data.status === 'open'
+                ? theme.COLORS.SECONDARY
+                : theme.COLORS.PRIMARY
+            }
           />
         </Header>
 
         <Footer>
           <Info>
-            <MaterialIcons name="schedule" size={16} color={theme.COLORS.SUBTEXT} />
-            <Label>
-              {
-                moment(data.created_at).format("DD/MM - HH:MM")
-              }
-            </Label>
+            <MaterialIcons
+              name='schedule'
+              size={16}
+              color={theme.COLORS.SUBTEXT}
+            />
+            <Label>{moment(data.created_at).format('DD/MM - HH:MM')}</Label>
           </Info>
 
           <Info>
-            <MaterialIcons name="my-location" size={16} color={theme.COLORS.SUBTEXT} />
-            <Label>
-              {data.patrimony}
-            </Label>
+            <MaterialIcons
+              name='my-location'
+              size={16}
+              color={theme.COLORS.SUBTEXT}
+            />
+            <Label>{data.patrimony}</Label>
           </Info>
         </Footer>
       </Content>
